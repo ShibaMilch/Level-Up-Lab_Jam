@@ -1,11 +1,18 @@
 extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var jump_sound = $JumpSound
+
+
 const SPEED = 100.0
 const JUMP_VELOCITY = -285.0
-
+var dead = false
 
 func _physics_process(delta):
+	if dead:
+		velocity = Vector2.ZERO
+		return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -13,6 +20,8 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_sound.play() 
+		
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
 	# Get the input direction and handle the movement/deceleration.
