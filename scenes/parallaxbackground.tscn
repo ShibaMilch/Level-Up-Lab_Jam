@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtu5rkhavr3es"]
+
+[ext_resource type="Texture2D" uid="uid://buy6xyfuqogbx" path="res://assets/sprites/environment/back.png" id="1_i74c2"]
+[ext_resource type="Texture2D" uid="uid://bcb4ppke5uut3" path="res://assets/sprites/environment/middle.png" id="2_bq8ux"]
+
+[node name="Parallaxbackground" type="Node2D"]
+position = Vector2(192, -2)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+
+[node name="Back" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_i74c2")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+
+[node name="Middle" type="Sprite2D" parent="Parallax2D2"]
+position = Vector2(-107, 193)
+texture = ExtResource("2_bq8ux")
