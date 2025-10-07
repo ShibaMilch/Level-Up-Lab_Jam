@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://rolc0mtot7u4"]
+
+[ext_resource type="Texture2D" uid="uid://iypf6l7i7nga" path="res://assets/sprites/dust1.png" id="1_trwx4"]
+[ext_resource type="Texture2D" uid="uid://dtsw4lg8q6g53" path="res://assets/sprites/dust2.png" id="2_8ghen"]
+[ext_resource type="Texture2D" uid="uid://dwl53fe0076m" path="res://assets/sprites/dust3.png" id="3_m3kdn"]
+[ext_resource type="Texture2D" uid="uid://bxf8jrqnf5gbm" path="res://assets/sprites/dust4.png" id="4_dbic7"]
+[ext_resource type="Script" uid="uid://vh1kmgi5nk18" path="res://scripts/dust.gd" id="5_yrk5d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1v4a0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_trwx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8ghen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m3kdn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dbic7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_trwx4"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8ghen"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m3kdn"]
+_data = {
+&"RESET": SubResource("Animation_8ghen"),
+&"start": SubResource("Animation_trwx4")
+}
+
+[node name="Dust" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1v4a0")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("5_yrk5d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_m3kdn")
+}
+autoplay = "start"
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

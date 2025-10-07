@@ -4,15 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://bcb4ppke5uut3" path="res://assets/sprites/environment/middle.png" id="2_bq8ux"]
 
 [node name="Parallaxbackground" type="Node2D"]
-position = Vector2(192, -2)
+position = Vector2(193, -2)
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Background" type="Parallax2D" parent="."]
+scroll_offset = Vector2(580, 1)
+repeat_size = Vector2(384, 0)
 
-[node name="Back" type="Sprite2D" parent="Parallax2D"]
+[node name="Back" type="Sprite2D" parent="Background"]
 texture = ExtResource("1_i74c2")
 
-[node name="Parallax2D2" type="Parallax2D" parent="."]
+[node name="Midground" type="Parallax2D" parent="."]
 
-[node name="Middle" type="Sprite2D" parent="Parallax2D2"]
-position = Vector2(-107, 193)
+[node name="Middle" type="Sprite2D" parent="Midground"]
 texture = ExtResource("2_bq8ux")
+centered = false
