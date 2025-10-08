@@ -1,6 +1,7 @@
-[gd_scene load_steps=44 format=4 uid="uid://c66f2tiagg1sr"]
+[gd_scene load_steps=45 format=4 uid="uid://c66f2tiagg1sr"]
 
 [ext_resource type="Script" uid="uid://bd0bxlq84buib" path="res://scripts/game_manager.gd" id="1_kvpfn"]
+[ext_resource type="Script" uid="uid://dybud2py4s6l5" path="res://scripts/screenshot.gd" id="1_sgl2t"]
 [ext_resource type="PackedScene" uid="uid://b3hjlgmu1lcvb" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://buy6xyfuqogbx" path="res://assets/sprites/environment/back.png" id="1_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bcb4ppke5uut3" path="res://assets/sprites/environment/middle.png" id="2_kvpfn"]
@@ -260,7 +261,7 @@ point_count = 7
 
 [sub_resource type="Curve2D" id="Curve2D_sgl2t"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 18, 6, 0, 0, 0, 0, -74, 3, 0, 0, 0, 0, -155, 5, 0, 0, 0, 0, -215, -4)
+"points": PackedVector2Array(0, 0, 0, 0, 18, 6, 0, 0, 0, 0, -74, 3, 0, 0, 0, 0, -155, 5, 0, 0, 0, 0, -220, 22)
 }
 point_count = 4
 
@@ -309,6 +310,7 @@ _data = {
 point_count = 3
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_sgl2t")
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(382, 126)
@@ -509,32 +511,26 @@ position = Vector2(1400, -53)
 [node name="Coin36" parent="Coins" instance=ExtResource("5_kvpfn")]
 position = Vector2(1416, -53)
 
-[node name="Coin40" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(1868, -20)
-
 [node name="Coin41" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(1884, -20)
+position = Vector2(1887, -58)
 
 [node name="Coin42" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(1900, -20)
+position = Vector2(1900, -65)
 
 [node name="Coin46" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(1916, -20)
+position = Vector2(1916, -65)
 
 [node name="Coin47" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(1932, -20)
+position = Vector2(1932, -65)
 
 [node name="Coin48" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(1948, -20)
+position = Vector2(1948, -65)
 
 [node name="Coin49" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(1964, -20)
+position = Vector2(1964, -65)
 
 [node name="Coin50" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(1980, -20)
-
-[node name="Coin51" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(1996, -20)
+position = Vector2(1980, -65)
 
 [node name="Coin52" parent="Coins" instance=ExtResource("5_kvpfn")]
 position = Vector2(2075, -31)
@@ -549,19 +545,19 @@ position = Vector2(2107, -31)
 position = Vector2(2123, -31)
 
 [node name="Coin56" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(2139, -31)
+position = Vector2(2139, -28)
 
 [node name="Coin57" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(2155, -31)
+position = Vector2(2156, -26)
 
 [node name="Coin58" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(2171, -31)
+position = Vector2(2173, -24)
 
 [node name="Coin59" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(2187, -31)
+position = Vector2(2190, -23)
 
 [node name="Coin60" parent="Coins" instance=ExtResource("5_kvpfn")]
-position = Vector2(2203, -31)
+position = Vector2(2207, -20)
 
 [node name="Coin37" parent="Coins" instance=ExtResource("5_kvpfn")]
 position = Vector2(1596, -36)
@@ -628,7 +624,7 @@ speed_scale = 0.5
 position = Vector2(1827, 8)
 curve = SubResource("Curve2D_e1j6l")
 speed = 0.3
-speed_scale = 0.6
+speed_scale = 0.3
 
 [node name="falling_platform2" parent="Obstacles" instance=ExtResource("6_ssvqc")]
 position = Vector2(1304, -37)
@@ -718,6 +714,7 @@ scale = Vector2(0.68, 0.68)
 theme_override_styles/panel = SubResource("StyleBoxFlat_pl11u")
 
 [node name="PointsLabel" type="Label" parent="GameUI/Panel"]
+texture_filter = 5
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

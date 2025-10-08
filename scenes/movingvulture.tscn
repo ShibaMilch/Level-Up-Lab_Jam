@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3278"]
 radius = 8.0
-height = 28.0
+height = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h7b0x"]
 atlas = ExtResource("2_mg0vb")
@@ -137,7 +137,7 @@ bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/KillZone"]
 z_index = 5
-position = Vector2(0, 1)
+position = Vector2(1, 4)
 shape = SubResource("CapsuleShape2D_q3278")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
@@ -145,6 +145,8 @@ shape = SubResource("CapsuleShape2D_q3278")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
 sprite_frames = SubResource("SpriteFrames_l8xad")
 autoplay = "default"
+frame = 1
+frame_progress = 0.63094985
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(4.7683716e-07, 2)
