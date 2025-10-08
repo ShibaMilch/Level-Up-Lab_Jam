@@ -1,8 +1,8 @@
 extends Node
 
-@onready var hud = $"../GameUI/HUD/Label"
+@onready var hud = $"../GameUI/Panel/PointsLabel"
 
-var score = 1
+var score = 0
 
 func add_point():
 	score += 1

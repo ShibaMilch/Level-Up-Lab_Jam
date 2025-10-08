@@ -1,0 +1,138 @@
+[gd_scene load_steps=18 format=3 uid="uid://b3korulwf2msi"]
+
+[ext_resource type="Script" uid="uid://cvdld4r18eutn" path="res://scripts/slime.gd" id="1_qxrkd"]
+[ext_resource type="Texture2D" uid="uid://b5km0dh5mo7x4" path="res://assets/sprites/enemies/sunny-mushroom-walk.png" id="2_6c3h1"]
+[ext_resource type="Script" uid="uid://dsp6pvu2lowjy" path="res://scripts/kill_zone.gd" id="3_f4pa7"]
+[ext_resource type="AudioStream" uid="uid://bi3aihh6egamy" path="res://assets/sounds/hurt.wav" id="4_jekqn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rddh"]
+atlas = ExtResource("2_6c3h1")
+region = Rect2(0, 0, 41, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v15d"]
+atlas = ExtResource("2_6c3h1")
+region = Rect2(41, 0, 41, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rtbm"]
+atlas = ExtResource("2_6c3h1")
+region = Rect2(82, 0, 41, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utliv"]
+atlas = ExtResource("2_6c3h1")
+region = Rect2(123, 0, 41, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfc76"]
+atlas = ExtResource("2_6c3h1")
+region = Rect2(164, 0, 41, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhg23"]
+atlas = ExtResource("2_6c3h1")
+region = Rect2(205, 0, 41, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmpg3"]
+atlas = ExtResource("2_6c3h1")
+region = Rect2(246, 0, 41, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15w21"]
+atlas = ExtResource("2_6c3h1")
+region = Rect2(287, 0, 41, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne4m3"]
+atlas = ExtResource("2_6c3h1")
+region = Rect2(328, 0, 41, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shet8"]
+atlas = ExtResource("2_6c3h1")
+region = Rect2(369, 0, 41, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5wyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rddh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v15d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rtbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utliv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfc76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhg23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmpg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15w21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne4m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shet8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0w611"]
+radius = 8.0
+height = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6pvg"]
+size = Vector2(14, 4)
+
+[node name="Mushroom" type="Node2D"]
+z_index = 5
+script = ExtResource("1_qxrkd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v5wyi")
+autoplay = "default"
+
+[node name="KillZone" type="Area2D" parent="."]
+z_index = 5
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_f4pa7")
+
+[node name="Timer" type="Timer" parent="KillZone"]
+wait_time = 1.2
+one_shot = true
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="KillZone"]
+stream = ExtResource("4_jekqn")
+bus = &"SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+z_index = 5
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_0w611")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(11, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-11, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 5
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 5
+position = Vector2(0, 13)
+shape = SubResource("RectangleShape2D_n6pvg")
+
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
+[connection signal="timeout" from="KillZone/Timer" to="KillZone" method="_on_timer_timeout"]

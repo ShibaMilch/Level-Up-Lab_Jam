@@ -6,6 +6,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afg43"]
 size = Vector2(31.971075, 16.043058)
 
+[sub_resource type="Animation" id="Animation_20ojx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_pgg5x"]
 resource_name = "move"
 length = 2.0
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_20ojx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_st7sd"]
 _data = {
 &"RESET": SubResource("Animation_20ojx"),
@@ -46,6 +46,7 @@ _data = {
 
 [node name="MovingPlatform" type="Path2D"]
 script = ExtResource("1_1tdcd")
+loop = false
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 progress = 17.841415

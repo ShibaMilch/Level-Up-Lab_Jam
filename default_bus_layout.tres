@@ -1,12 +1,17 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dhgcsx13geh8s"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://dhgcsx13geh8s"]
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_j3pel"]
+resource_name = "PitchShift"
 
 [resource]
 bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -21.826433
+bus/1/volume_db = -4.0056863
 bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectPitchShift_j3pel")
+bus/1/effect/0/enabled = true
 bus/2/name = &"SFX"
 bus/2/solo = false
 bus/2/mute = false

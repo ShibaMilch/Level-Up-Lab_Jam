@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bg1ob4yvi4pko"
+path="res://.godot/imported/Crystal Clear Loop.mp3-bba043f78118b2f27a14753ce88d72dc.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Crystal Clear Loop.mp3"
+dest_files=["res://.godot/imported/Crystal Clear Loop.mp3-bba043f78118b2f27a14753ce88d72dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

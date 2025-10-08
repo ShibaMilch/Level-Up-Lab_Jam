@@ -15,14 +15,14 @@ ss2d/version="3.3.0"
 [application]
 
 config/name="First Game"
-run/main_scene="uid://c66f2tiagg1sr"
+run/main_scene="uid://cq4s2c577g325"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-Music="*res://scenes/music.tscn"
+Music="res://scenes/music.tscn"
 
 [display]
 

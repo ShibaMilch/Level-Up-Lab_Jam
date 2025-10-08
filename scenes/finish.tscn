@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn13ikogcvh6u"]
+
+[ext_resource type="Texture2D" uid="uid://b8qu1c6d25qyl" path="res://assets/sprites/props/End (Idle).png" id="1_5nbog"]
+[ext_resource type="Script" uid="uid://i2d81qv85c7b" path="res://scripts/finish.gd" id="1_07gpw"]
+[ext_resource type="AudioStream" uid="uid://btpgnqw2ca3k" path="res://assets/music/Next Future.mp3" id="3_m504p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl11u"]
+size = Vector2(12, 44)
+
+[node name="Finish" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_07gpw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5nbog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_pl11u")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="VictoryMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m504p")
+volume_db = 1.01
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VictoryMusic"]
+autoplay = true
+bus = &"Music"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

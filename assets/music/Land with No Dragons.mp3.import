@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kn3pc1manotu"
+path="res://.godot/imported/Land with No Dragons.mp3-98e108a7729397a410e9e44ce11c43ee.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Land with No Dragons.mp3"
+dest_files=["res://.godot/imported/Land with No Dragons.mp3-98e108a7729397a410e9e44ce11c43ee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

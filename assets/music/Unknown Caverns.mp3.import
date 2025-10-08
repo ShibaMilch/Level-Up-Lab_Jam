@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtmfcvgwlnchx"
+path="res://.godot/imported/Unknown Caverns.mp3-85de404c3870cc8f2e47893b7b38ff3d.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Unknown Caverns.mp3"
+dest_files=["res://.godot/imported/Unknown Caverns.mp3-85de404c3870cc8f2e47893b7b38ff3d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
